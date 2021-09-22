@@ -7,16 +7,15 @@
     <button 
       on:click="{() => active = 0}"
       class="btn btn-lg {active === 0 ? 'btn-active' : ''}">
-      Large
-    </button>
+      One</button>
     <button 
       on:click="{() => active = 1}"
       class="btn btn-lg {active === 1 ? 'btn-active' : ''}">
-      Large</button>
+      Two</button>
     <button
       on:click="{() => active = 2}" 
       class="btn btn-lg {active === 2 ? 'btn-active' : ''}">
-    Large</button>
+      Three</button>
   </div>
 </main>
 
