@@ -1,22 +1,21 @@
 <script>
-  let active = 0;
+  import data from './data.json'
+
+  let posts = data.data
+
 </script>
 
-<main class="flex w-full flex-col items-center mt-10 justify-center">
-  <div class="btn-group">
-    <button 
-      on:click="{() => active = 0}"
-      class="btn btn-lg {active === 0 ? 'btn-active' : ''}">
-      One</button>
-    <button 
-      on:click="{() => active = 1}"
-      class="btn btn-lg {active === 1 ? 'btn-active' : ''}">
-      Two</button>
-    <button
-      on:click="{() => active = 2}" 
-      class="btn btn-lg {active === 2 ? 'btn-active' : ''}">
-      Three</button>
-  </div>
+<main class="flex w-full flex-col items-center mt-10 justify-center space-y-5">
+  <!-- https://daisyui.com/components/card/ -->
+  {#each posts as post }
+    <div class="card bg-neutral text-white w-80 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">{post.author}</h2> 
+        <p>{post.post}</p> 
+      </div>
+    </div>
+  {/each}
+
 </main>
 
 <style>
