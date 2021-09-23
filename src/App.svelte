@@ -5,6 +5,7 @@
     numA += 5
   }
 
+  // Explain Watch/Computed variables
   $: multiple = numA*2
 
 
