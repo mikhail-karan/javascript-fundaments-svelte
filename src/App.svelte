@@ -5,11 +5,14 @@
 
   let posts = data.data;
 
+  let arrayInc = posts.length
+
   function addPost(author, post) {
+    
     const postObj = {
       author: author,
       post: post,
-      id: posts.length + 1,
+      id: ++arrayInc,
     };
 
     posts.push(postObj);
@@ -26,7 +29,7 @@
 <main class="flex w-full flex-col items-center mt-10 justify-center space-y-5">
   <AddForm addPost={addPost} />
   {#each posts.reverse() as post}
-    <Post deleteItem={deletePost} author={post.author} post={post.post} />
+    <Post deleteItem={deletePost} author={post.author} post={post.post} id={post.id} />
   {/each}
 </main>
 

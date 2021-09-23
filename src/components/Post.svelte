@@ -6,7 +6,7 @@
   export let deleteItem;
 
   onMount(() => {
-    console.log(author, ' post mounted')
+    console.log(id, ' post mounted')
 
     return () => console.log('post unmounted')
   })
