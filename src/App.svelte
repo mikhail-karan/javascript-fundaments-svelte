@@ -5,6 +5,11 @@
   let name = "";
   let postText = "";
 
+  // Example for how data binding works 
+  // console.log(name)
+  // $: testName = console.log(name)
+
+  // Explain that adding a post does not write to file
   function addPost() {
     const post = {
       author: name,
@@ -25,6 +30,8 @@
     <label for="id" class="label">
       <span class="label-text">Name</span>
     </label>
+    <!-- Explain binding -->
+    <!-- Connecting/binding the value of input box to the variable name -->
     <input
       type="text"
       bind:value={name}
