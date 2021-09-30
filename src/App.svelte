@@ -20,7 +20,7 @@
 <main class="flex w-full flex-col items-center mt-10 justify-center space-y-5">
   <AddForm addPost={addPost} />
   {#each posts.reverse() as post}
-    <Post author={post.author} post={post.post} />
+    <Post {...post} />
   {/each}
 </main>
 
