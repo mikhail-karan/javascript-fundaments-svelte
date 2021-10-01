@@ -35,7 +35,7 @@
   }
 </script>
 
-<main transition:fade class="flex w-full flex-col items-center mt-10 justify-center space-y-5">
+<main class="flex w-full flex-col items-center mt-10 justify-center space-y-5">
   {#if alertActive}
   <Alert  />
   {/if}
