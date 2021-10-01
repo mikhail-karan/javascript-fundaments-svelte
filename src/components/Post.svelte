@@ -4,11 +4,14 @@
   export let post;
   export let id;
   export let deleteItem;
+  export let itemDeleted;
 
   onMount(() => {
     console.log(id, ' post mounted')
 
-    return () => console.log('post unmounted')
+    return () => {
+      itemDeleted()
+    }
   })
 </script>
 
