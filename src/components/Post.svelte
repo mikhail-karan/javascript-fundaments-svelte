@@ -1,18 +1,21 @@
 <script>
-  import {onMount} from 'svelte'
+  import { onMount, onDestroy } from "svelte";
   export let author;
   export let post;
   export let id;
   export let deleteItem;
   export let itemDeleted;
 
-  onMount(() => {
-    console.log(id, ' post mounted')
+  let timeOnScreen = 0;
 
-    return () => {
-      itemDeleted()
-    }
-  })
+  onMount(() => {
+    timeOnScreen = performance.now();
+  });
+
+  onDestroy(() => {
+    const whenDestroyed = performance.now()
+    console.log(`Post with Id of ${id} 'has been on screen for ${Math.ceil((whenDestroyed - timeOnScreen)/1000)}s `  )
+  });
 </script>
 
 <!-- https://daisyui.com/components/card/ -->
