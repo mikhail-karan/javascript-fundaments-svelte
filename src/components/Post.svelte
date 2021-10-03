@@ -3,7 +3,7 @@
   export let author;
   export let post;
   export let id;
-  export let deletePost;
+  import {storedPosts} from '../stores'
 
   let timeOnScreen = 0;
   let timeInterval = null;
@@ -20,18 +20,23 @@
       ++timeOnScreen;
       console.log(`Interval updated for post id ${id}`)
     },1000);
-    // initDestroy(id, author)
   });
 
   onDestroy(() => {
     clearInterval(timeInterval);
   });
+
+  function deletePost(){
+    const deleteIndex = $storedPosts.findIndex(post => post.id === id)
+    $storedPosts.splice(deleteIndex, 1)
+    $storedPosts = $storedPosts
+  }
 </script>
 
 <!-- https://daisyui.com/components/card/ -->
 <div class="card bg-neutral text-white w-80 shadow-xl">
   <div
-    on:click={deletePost(id)}
+    on:click={deletePost}
     class="absolute right-0 pr-2 text-error text-2xl"
   >
     x

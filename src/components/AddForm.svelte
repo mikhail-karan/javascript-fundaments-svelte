@@ -1,12 +1,28 @@
 <script>
-  export let addPost;
+  // export let addPost;
+  import { storedPosts } from "../stores";
+  import { navigate } from "svelte-navigator";
+
+  let arrayInc = $storedPosts.length;
+
   let author;
   let post;
 
-  function submitForm() {
-    addPost(author, post);
+  function addPost() {
+    const postObj = {
+      author: author,
+      post: post,
+      id: ++arrayInc,
+    };
+
+    // $storedPosts = [...$storedPosts, postObj]
+    $storedPosts.push(postObj);
+    $storedPosts = $storedPosts;
+
     author = "";
     post = "";
+
+    navigate("/posts");
   }
 </script>
 
@@ -29,7 +45,5 @@
     bind:value={post}
     placeholder="Enter Post"
   />
-  <button on:click={submitForm} class="btn btn-primary mt-5"
-    >Submit</button
-  >
+  <button on:click={addPost} class="btn btn-primary mt-5">Submit</button>
 </div>
